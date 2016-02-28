@@ -34,7 +34,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](path/to/your/gif)
+![Video Walkthrough](https://github.com/dunghuynh1990/TipsCalculator/blob/master/TipsCal.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
