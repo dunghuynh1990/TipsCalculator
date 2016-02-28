@@ -15,6 +15,7 @@
 		87BC38551C832C5F00CE3D7A /* TipsCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC38541C832C5F00CE3D7A /* TipsCalculatorTests.swift */; };
 		87BC38601C832C5F00CE3D7A /* TipsCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC385F1C832C5F00CE3D7A /* TipsCalculatorUITests.swift */; };
 		87BC386E1C83395A00CE3D7A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC386D1C83395A00CE3D7A /* SettingViewController.swift */; };
+		87BC38701C8342BB00CE3D7A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC386F1C8342BB00CE3D7A /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		87BC385F1C832C5F00CE3D7A /* TipsCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCalculatorUITests.swift; sourceTree = "<group>"; };
 		87BC38611C832C5F00CE3D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87BC386D1C83395A00CE3D7A /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		87BC386F1C8342BB00CE3D7A /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				87BC383F1C832C5F00CE3D7A /* AppDelegate.swift */,
 				87BC38411C832C5F00CE3D7A /* TipViewController.swift */,
 				87BC386D1C83395A00CE3D7A /* SettingViewController.swift */,
+				87BC386F1C8342BB00CE3D7A /* TableViewCell.swift */,
 				87BC38431C832C5F00CE3D7A /* Main.storyboard */,
 				87BC38461C832C5F00CE3D7A /* Assets.xcassets */,
 				87BC38481C832C5F00CE3D7A /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87BC38421C832C5F00CE3D7A /* TipViewController.swift in Sources */,
+				87BC38701C8342BB00CE3D7A /* TableViewCell.swift in Sources */,
 				87BC38401C832C5F00CE3D7A /* AppDelegate.swift in Sources */,
 				87BC386E1C83395A00CE3D7A /* SettingViewController.swift in Sources */,
 			);
