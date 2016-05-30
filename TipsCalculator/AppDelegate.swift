@@ -12,14 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(25, forKey: "MaximumPercentage")
-        defaults.setInteger(20, forKey: "DefaultPercentage")
-        defaults.setInteger(10, forKey: "MinimumPercentage")
+        
         defaults.synchronize()
+        
+        if(defaults.boolForKey("isFirstLaunch")) {
+            
+        } else {
+            defaults.setBool(true, forKey: "isFirstLaunch")
+            defaults.setInteger(25, forKey: "MaximumPercentage")
+            defaults.setInteger(20, forKey: "DefaultPercentage")
+            defaults.setInteger(10, forKey: "MinimumPercentage")
+            defaults.synchronize()
+        }
         return true
     }
 

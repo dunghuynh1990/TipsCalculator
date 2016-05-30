@@ -71,34 +71,39 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func textFieldDidChange(textField: UITextField) {
+        //try!
         if (textField.text?.characters.count > 0 && Int(textField.text!) > 0) {
+            let textNum = Int(textField.text!)
             switch textField.tag {
             case 0:
-                if Int(textField.text!) >= percentageItems[1] {
+                if textNum >= percentageItems[1] {
                     showAlertView("Mininum tip percentage can not greater than or equal to Defaulf tip percentage.")
                     textField.text = "\(percentageItems[textField.tag ])"
                 }else {
-                    defaults.setInteger(Int(textField.text!)!, forKey: "MinimumPercentage")
+                    defaults.setInteger(textNum!, forKey: "MinimumPercentage")
+                    textField.text = "\(textNum!)"
                 }
             case 1:
-                if Int(textField.text!)! >= percentageItems[2] {
+                if textNum >= percentageItems[2] {
                     showAlertView("Default tip percentage can not greater than or equal to Maximum tip percentage.")
                     textField.text = "\(percentageItems[textField.tag ])"
-                }else if Int(textField.text!)! <= percentageItems[0]{
+                }else if textNum <= percentageItems[0]{
                     showAlertView("Default tip percentage can not smaller than or equal to Minimum tip percentage.")
                     textField.text = "\(percentageItems[textField.tag ])"
                 }else {
-                    defaults.setInteger(Int(textField.text!)!, forKey: "DefaultPercentage")
+                    defaults.setInteger(textNum!, forKey: "DefaultPercentage")
+                    textField.text = "\(textNum!)"
                 }
             case 2:
                 if Int(textField.text!)! > 40 {
                     showAlertView("Mininum tip can not greater than 40%.")
                     textField.text = "\(percentageItems[textField.tag ])"
-                }else if (Int(textField.text!)! <= percentageItems[1]){
+                }else if (textNum <= percentageItems[1]){
                     showAlertView("Default tip percentage can not smaller than or equal to Default tip percentage.")
                     textField.text = "\(percentageItems[textField.tag ])"
                 }else {
-                    defaults.setInteger(Int(textField.text!)!, forKey: "MaximumPercentage")
+                    defaults.setInteger(textNum!, forKey: "MaximumPercentage")
+                    textField.text = "\(textNum!)"
                 }
             default:
                 break
