@@ -23,9 +23,6 @@ class TipViewController: UIViewController, UITextFieldDelegate {
     //MARK: view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblTip.text = currencySign+zeroBill
-        lblTotal.text = currencySign+zeroBill
-        txfBill.becomeFirstResponder()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -38,6 +35,10 @@ class TipViewController: UIViewController, UITextFieldDelegate {
             tipControl.setTitle(String(format:"%d %%",percentageItems[i]), forSegmentAtIndex:i)
         }
         tipControl.selectedSegmentIndex = 1
+        
+        lblTip.text = currencySign+zeroBill
+        lblTotal.text = currencySign+zeroBill
+        txfBill.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
