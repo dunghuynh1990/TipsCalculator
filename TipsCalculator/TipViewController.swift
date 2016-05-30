@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TipViewController: UIViewController {
+class TipViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var txfBill: UITextField!
     @IBOutlet weak var lblTotal: UILabel!
@@ -62,6 +62,15 @@ class TipViewController: UIViewController {
             lblTotal.text = currencySign+zeroBill
             return
         }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else {
+            return true
+        }
+        
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= 10 // Bool
     }
     
     @IBAction func onTap(sender: AnyObject) {

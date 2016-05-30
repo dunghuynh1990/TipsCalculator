@@ -29,14 +29,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xK-Bd-PZP">
-                                <rect key="frame" x="0.0" y="165" width="320" height="72"/>
-                                <color key="backgroundColor" red="0.12781038880348206" green="0.46003657579421997" blue="0.61350125074386597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                <rect key="frame" x="0.0" y="165" width="320" height="60"/>
+                                <color key="backgroundColor" red="0.14782917499542236" green="0.51958107948303223" blue="0.73715728521347046" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <color key="textColor" red="0.97521048784255981" green="0.99292021989822388" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0EB-qb-H0N">
-                                <rect key="frame" x="20" y="261" width="280" height="29"/>
+                                <rect key="frame" x="20" y="249" width="280" height="29"/>
                                 <segments>
                                     <segment title="18%"/>
                                     <segment title="20%"/>
@@ -54,12 +54,22 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="eXq-zj-A2o"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ilk-mo-rxF"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8J-CN-Bjj">
+                                <rect key="frame" x="3" y="132" width="29" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99991601705551147" green="1" blue="0.99987190961837769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="d8J-CN-Bjj" firstAttribute="top" secondItem="5tp-jn-5zP" secondAttribute="bottom" constant="-1" id="1QQ-eH-I8O"/>
+                            <constraint firstItem="d8J-CN-Bjj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-13" id="25l-po-vmK"/>
                             <constraint firstItem="5tp-jn-5zP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3hR-04-UPe"/>
                             <constraint firstAttribute="trailing" secondItem="5tp-jn-5zP" secondAttribute="trailing" id="5Ss-Xe-95B"/>
                             <constraint firstItem="0xK-Bd-PZP" firstAttribute="top" secondItem="4rN-zQ-O9T" secondAttribute="bottom" id="8As-iI-JqM"/>
@@ -69,6 +79,7 @@
                             <constraint firstAttribute="trailing" secondItem="0xK-Bd-PZP" secondAttribute="trailing" id="XKS-WX-ZcA"/>
                             <constraint firstItem="4rN-zQ-O9T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e00-N5-7GV"/>
                             <constraint firstItem="0xK-Bd-PZP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eKQ-TS-ZA3"/>
+                            <constraint firstItem="d8J-CN-Bjj" firstAttribute="centerY" secondItem="4rN-zQ-O9T" secondAttribute="centerY" id="eOx-cO-MqV"/>
                             <constraint firstAttribute="trailing" secondItem="0EB-qb-H0N" secondAttribute="trailing" constant="20" id="icb-Wo-hPh"/>
                             <constraint firstItem="5tp-jn-5zP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="61" id="qb0-Xt-eCx"/>
                             <constraint firstAttribute="trailing" secondItem="4rN-zQ-O9T" secondAttribute="trailing" id="w5y-Jg-KAk"/>
