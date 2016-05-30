@@ -6,7 +6,7 @@
 
 Submitted by: **Huynh Tri Dung**
 
-Time spent: **3** hours spent in total
+Time spent: **9** hours spent in total
 
 ## User Stories
 
@@ -21,19 +21,9 @@ The following **optional** features are implemented:
 
 ## Video Walkthrough 
 
-> `![Video Walkthrough](walkthrough.gif)` 
- 
-> You can also upload your image to imgur.com and embed the link here.
-
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](https://github.com/dunghuynh1990/TipsCalculator/blob/master/TipsCal.gif)
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
-## Notes
-
-Need to do as quick as possible: table view, save nsuser default, fix some bugs...
+![Video Walkthrough](https://github.com/dunghuynh1990/TipsCalculator/blob/master/TipCal.gif)
 
 ## License
 
