@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(25, forKey: "MaximumPercentage")
         defaults.setInteger(20, forKey: "DefaultPercentage")
