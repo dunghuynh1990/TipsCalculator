@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class TipViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var txfBill: UITextField!
@@ -39,6 +40,7 @@ class TipViewController: UIViewController, UITextFieldDelegate {
         lblTip.text = currencySign+zeroBill
         lblTotal.text = currencySign+zeroBill
         txfBill.becomeFirstResponder()
+
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -52,16 +54,20 @@ class TipViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: textfield
     @IBAction func onEditingChanged(sender: AnyObject) {
-        let tipPercentage = Double(percentageItems[tipControl.selectedSegmentIndex]) * 0.01
-        if let billAmount = Double(txfBill.text!) {
-            let tip = billAmount * tipPercentage
-            let total = billAmount + tip
-            lblTip.text = String(format: "$%.2f",tip)
-            lblTotal.text = String(format: "$%.2f", total)
+        if (Double(txfBill.text!)==0 && (txfBill.text?.isEmpty) != nil) {
+            txfBill.text = ""
         }else {
-            lblTip.text = currencySign+zeroBill
-            lblTotal.text = currencySign+zeroBill
-            return
+            if let billAmount = Double(txfBill.text!) {
+                let tipPercentage = Double(percentageItems[tipControl.selectedSegmentIndex]) * 0.01
+                let tip = billAmount * tipPercentage
+                let total = billAmount + tip
+                lblTip.text = String(format: "$%.2f",tip)
+                lblTotal.text = String(format: "$%.2f", total)
+            }else {
+                lblTip.text = currencySign+zeroBill
+                lblTotal.text = currencySign+zeroBill
+                return
+            }
         }
     }
     
@@ -77,5 +83,4 @@ class TipViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
-    
 }

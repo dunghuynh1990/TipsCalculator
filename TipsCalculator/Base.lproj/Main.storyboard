@@ -110,7 +110,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="559" y="321"/>
+            <point key="canvasLocation" x="449" y="244"/>
         </scene>
         <!--Setting-->
         <scene sceneID="UYt-c0-G93">
@@ -135,30 +135,47 @@
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYB-PY-C71">
-                                                    <rect key="frame" x="20" y="14" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYB-PY-C71">
+                                                    <rect key="frame" x="20" y="14" width="81" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="81" id="2JY-HF-rUQ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="%" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIg-DX-7HQ">
-                                                    <rect key="frame" x="223" y="15" width="97" height="21"/>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OW4-wa-f3L">
+                                                    <rect key="frame" x="107" y="10" width="166" height="31"/>
+                                                    <connections>
+                                                        <action selector="sliderValueChanged:" destination="24L-iw-Xlc" eventType="valueChanged" id="FCA-4E-VJA"/>
+                                                    </connections>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh4-W2-FIT">
+                                                    <rect key="frame" x="279" y="14" width="41" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="41" id="YRa-R4-5Y7"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41" id="z3e-mv-TIL"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                </textField>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FIg-DX-7HQ" firstAttribute="centerY" secondItem="f43-X2-t5n" secondAttribute="centerY" id="14W-Zx-cE5"/>
-                                                <constraint firstItem="FIg-DX-7HQ" firstAttribute="leading" secondItem="eYB-PY-C71" secondAttribute="trailing" constant="161" id="Bfg-qk-KjM"/>
-                                                <constraint firstItem="eYB-PY-C71" firstAttribute="centerY" secondItem="f43-X2-t5n" secondAttribute="centerY" id="CLs-MV-vzx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="FIg-DX-7HQ" secondAttribute="trailing" id="OcZ-Xd-g1v"/>
-                                                <constraint firstItem="eYB-PY-C71" firstAttribute="top" secondItem="f43-X2-t5n" secondAttribute="topMargin" constant="6" id="gzg-rz-iRS"/>
-                                                <constraint firstItem="eYB-PY-C71" firstAttribute="leading" secondItem="f43-X2-t5n" secondAttribute="leadingMargin" constant="12" id="h5d-rV-9mh"/>
+                                                <constraint firstItem="nh4-W2-FIT" firstAttribute="leading" secondItem="OW4-wa-f3L" secondAttribute="trailing" constant="8" symbolic="YES" id="2gM-t8-qXa"/>
+                                                <constraint firstItem="nh4-W2-FIT" firstAttribute="trailing" secondItem="f43-X2-t5n" secondAttribute="trailingMargin" id="5Gp-D1-x9o"/>
+                                                <constraint firstItem="nh4-W2-FIT" firstAttribute="leading" secondItem="OW4-wa-f3L" secondAttribute="trailing" constant="8" id="IBZ-74-OuR"/>
+                                                <constraint firstItem="nh4-W2-FIT" firstAttribute="baseline" secondItem="eYB-PY-C71" secondAttribute="baseline" id="IfL-hl-lVf"/>
+                                                <constraint firstItem="eYB-PY-C71" firstAttribute="leading" secondItem="f43-X2-t5n" secondAttribute="leadingMargin" constant="12" id="c56-r6-B2C"/>
+                                                <constraint firstItem="OW4-wa-f3L" firstAttribute="leading" secondItem="eYB-PY-C71" secondAttribute="trailing" constant="8" id="evu-Sx-Oyn"/>
+                                                <constraint firstItem="nh4-W2-FIT" firstAttribute="centerY" secondItem="f43-X2-t5n" secondAttribute="centerY" id="hfx-94-tQ0"/>
+                                                <constraint firstItem="nh4-W2-FIT" firstAttribute="centerY" secondItem="OW4-wa-f3L" secondAttribute="centerY" id="lN4-8h-Cuj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="name" destination="eYB-PY-C71" id="am0-cR-0Ko"/>
-                                            <outlet property="percentage" destination="FIg-DX-7HQ" id="AZI-K7-D5m"/>
+                                            <outlet property="percentage" destination="nh4-W2-FIT" id="jrr-1H-5mT"/>
+                                            <outlet property="slider" destination="OW4-wa-f3L" id="drU-ab-GGs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -177,9 +194,6 @@
                             <constraint firstItem="yeo-cF-xfo" firstAttribute="centerY" secondItem="GjY-qm-Z8m" secondAttribute="centerY" id="hZC-w1-TPM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yeo-cF-xfo" secondAttribute="trailing" constant="-20" id="yim-Vg-R9O"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="fqL-Wl-VhO" appends="YES" id="arB-xM-JSO"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="YPW-hr-4lr"/>
                     <connections>
@@ -187,13 +201,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsh-gM-DCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="fqL-Wl-VhO">
-                    <connections>
-                        <action selector="onTap:" destination="qzQ-Qw-JuM" id="Uvb-uc-Wyn"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="999" y="321"/>
+            <point key="canvasLocation" x="814" y="244"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MEP-H9-oih">
@@ -211,7 +220,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXw-uh-YDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="321"/>
+            <point key="canvasLocation" x="30" y="244"/>
         </scene>
     </scenes>
 </document>
