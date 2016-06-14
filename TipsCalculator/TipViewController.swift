@@ -8,6 +8,14 @@
 
 import UIKit
 
+extension Double {
+    var asLocaleCurrency:String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        return formatter.stringFromNumber(self)!
+    }
+}
 
 class TipViewController: UIViewController, UITextFieldDelegate {
 
@@ -17,9 +25,8 @@ class TipViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tipControl: UISegmentedControl!
     
     var percentageItems:[Int] = []
+    var zeroBill = 0.0
     
-    var zeroBill = "0.00",
-    currencySign = "$"
     
     //MARK: view life cycle
     override func viewDidLoad() {
@@ -36,9 +43,9 @@ class TipViewController: UIViewController, UITextFieldDelegate {
             tipControl.setTitle(String(format:"%d %%",percentageItems[i]), forSegmentAtIndex:i)
         }
         tipControl.selectedSegmentIndex = 1
-        
-        lblTip.text = currencySign+zeroBill
-        lblTotal.text = currencySign+zeroBill
+        txfBill.placeholder = zeroBill.asLocaleCurrency
+        lblTip.text = zeroBill.asLocaleCurrency
+        lblTotal.text = zeroBill.asLocaleCurrency
         txfBill.becomeFirstResponder()
 
     }
@@ -61,11 +68,11 @@ class TipViewController: UIViewController, UITextFieldDelegate {
                 let tipPercentage = Double(percentageItems[tipControl.selectedSegmentIndex]) * 0.01
                 let tip = billAmount * tipPercentage
                 let total = billAmount + tip
-                lblTip.text = String(format: "$%.2f",tip)
-                lblTotal.text = String(format: "$%.2f", total)
+                lblTip.text = tip.asLocaleCurrency
+                lblTotal.text = total.asLocaleCurrency
             }else {
-                lblTip.text = currencySign+zeroBill
-                lblTotal.text = currencySign+zeroBill
+                lblTip.text = zeroBill.asLocaleCurrency
+                lblTotal.text = zeroBill.asLocaleCurrency
                 return
             }
         }
@@ -83,4 +90,5 @@ class TipViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
+    
 }
