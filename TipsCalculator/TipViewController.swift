@@ -6,14 +6,29 @@
 //  Copyright © 2016 Huynh Tri Dung. All rights reserved.
 //
 
+//================
+//TODO: Auto layout
+//TODO: Use stepper in Setting View
+//TODO: Add animation
+//TODO: Use system icon
+
+/*
+ [ ] UI animations * 
+ [ ] Remembering the bill amount across app restarts (if <10mins) * 
+ [ ] Using locale-specific currency and currency thousands separators. * 
+ [ ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+*/
+
 import UIKit
 
 extension Double {
     var asLocaleCurrency:String {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        formatter.locale = NSLocale.currentLocale()
-        return formatter.stringFromNumber(self)!
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+//        return formatter.string(from:NSNumber(self))!
+        return formatter.string(from: NSNumber(value: self))!
+        
     }
 }
 
@@ -33,14 +48,14 @@ class TipViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let defaults = NSUserDefaults.standardUserDefaults()
-        percentageItems.append(defaults.integerForKey("MinimumPercentage"))
-        percentageItems.append(defaults.integerForKey("DefaultPercentage"))
-        percentageItems.append(defaults.integerForKey("MaximumPercentage"))
+        let defaults = UserDefaults.standard
+        percentageItems.append(defaults.integer(forKey: "MinimumPercentage"))
+        percentageItems.append(defaults.integer(forKey: "DefaultPercentage"))
+        percentageItems.append(defaults.integer(forKey: "MaximumPercentage"))
         for i in 0...2 {
-            tipControl.setTitle(String(format:"%d %%",percentageItems[i]), forSegmentAtIndex:i)
+            tipControl.setTitle(String(format:"%d %%",percentageItems[i]), forSegmentAt:i)
         }
         tipControl.selectedSegmentIndex = 1
         txfBill.placeholder = zeroBill.asLocaleCurrency
@@ -50,7 +65,7 @@ class TipViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         percentageItems = []
     }
@@ -60,7 +75,7 @@ class TipViewController: UIViewController, UITextFieldDelegate {
     }
 
     //MARK: textfield
-    @IBAction func onEditingChanged(sender: AnyObject) {
+    @IBAction func onEditingChanged(_ sender: AnyObject) {
         if (Double(txfBill.text!)==0 && (txfBill.text?.isEmpty) != nil) {
             txfBill.text = ""
         }else {
@@ -78,7 +93,7 @@ class TipViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else {
             return true
         }
@@ -87,7 +102,7 @@ class TipViewController: UIViewController, UITextFieldDelegate {
         return newLength <= 10 // Bool
     }
     
-    @IBAction func onTap(sender: AnyObject) {
+    @IBAction func onTap(_ sender: AnyObject) {
         view.endEditing(true)
     }
     

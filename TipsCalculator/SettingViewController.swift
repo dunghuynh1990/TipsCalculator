@@ -14,17 +14,17 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var percentageItems:[Int] = []
     var percentageTag:[String] = []
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        percentageItems.append(defaults.integerForKey("MinimumPercentage"))
-        percentageItems.append(defaults.integerForKey("DefaultPercentage"))
-        percentageItems.append(defaults.integerForKey("MaximumPercentage"))
+        percentageItems.append(defaults.integer(forKey: "MinimumPercentage"))
+        percentageItems.append(defaults.integer(forKey: "DefaultPercentage"))
+        percentageItems.append(defaults.integer(forKey: "MaximumPercentage"))
         
         percentageTag.append("Minimum")
         percentageTag.append("Default")
@@ -32,7 +32,7 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
@@ -40,35 +40,35 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var headerString:String = ""
         headerString = "Tip Percentage (%)"
         return headerString as String
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return percentageItems.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellIdentifier", forIndexPath: indexPath) as! TableViewCell
-        cell.name.text = percentageTag[indexPath.row]
-        cell.percentage.text = "\(percentageItems[indexPath.row])%"
-        if indexPath.row == 0 {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath) as! TableViewCell
+        cell.name.text = percentageTag[(indexPath as NSIndexPath).row]
+        cell.percentage.text = "\(percentageItems[(indexPath as NSIndexPath).row])%"
+        if (indexPath as NSIndexPath).row == 0 {
             cell.slider.minimumValue = 1
             cell.slider.maximumValue = 15
-            cell.slider.value = Float(percentageItems[indexPath.row])
-            cell.slider.tag = indexPath.row
-        }else if indexPath.row == 1 {
+            cell.slider.value = Float(percentageItems[(indexPath as NSIndexPath).row])
+            cell.slider.tag = (indexPath as NSIndexPath).row
+        }else if (indexPath as NSIndexPath).row == 1 {
             cell.slider.minimumValue = 16
             cell.slider.maximumValue = 30
-            cell.slider.value = Float(percentageItems[indexPath.row])
-            cell.slider.tag = indexPath.row
-        }else if indexPath.row == 2 {
+            cell.slider.value = Float(percentageItems[(indexPath as NSIndexPath).row])
+            cell.slider.tag = (indexPath as NSIndexPath).row
+        }else if (indexPath as NSIndexPath).row == 2 {
             cell.slider.minimumValue = 31
             cell.slider.maximumValue = 40
-            cell.slider.value = Float(percentageItems[indexPath.row])
-            cell.slider.tag = indexPath.row
+            cell.slider.value = Float(percentageItems[(indexPath as NSIndexPath).row])
+            cell.slider.tag = (indexPath as NSIndexPath).row
         }
         return cell
     }

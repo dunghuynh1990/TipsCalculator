@@ -37,6 +37,9 @@
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0EB-qb-H0N">
                                 <rect key="frame" x="20" y="249" width="280" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="BAc-I8-UAk"/>
+                                </constraints>
                                 <segments>
                                     <segment title="18%"/>
                                     <segment title="20%"/>
@@ -129,10 +132,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellIdentifier" id="24L-iw-Xlc" customClass="TableViewCell" customModule="TipsCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="114" width="328" height="50"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="328" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="24L-iw-Xlc" id="f43-X2-t5n">
-                                            <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYB-PY-C71">
@@ -202,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsh-gM-DCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="244"/>
+            <point key="canvasLocation" x="898" y="244"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MEP-H9-oih">

@@ -13,30 +13,30 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var percentage: UILabel!
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var percentageItems:[Int] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        percentageItems.append(defaults.integerForKey("MinimumPercentage"))
-        percentageItems.append(defaults.integerForKey("DefaultPercentage"))
-        percentageItems.append(defaults.integerForKey("MaximumPercentage"))
+        percentageItems.append(defaults.integer(forKey: "MinimumPercentage"))
+        percentageItems.append(defaults.integer(forKey: "DefaultPercentage"))
+        percentageItems.append(defaults.integer(forKey: "MaximumPercentage"))
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
     
-    @IBAction func sliderValueChanged(slider: UISlider) {
+    @IBAction func sliderValueChanged(_ slider: UISlider) {
         percentage.text = "\(Int(slider.value))%"
         switch slider.tag {
         case 0:
-            defaults.setInteger(Int(slider.value), forKey: "MinimumPercentage")
+            defaults.set(Int(slider.value), forKey: "MinimumPercentage")
         case 1:
-            defaults.setInteger(Int(slider.value), forKey: "DefaultPercentage")
+            defaults.set(Int(slider.value), forKey: "DefaultPercentage")
         case 2:
-            defaults.setInteger(Int(slider.value), forKey: "MaximumPercentage")
+            defaults.set(Int(slider.value), forKey: "MaximumPercentage")
         default:
             break
         }
